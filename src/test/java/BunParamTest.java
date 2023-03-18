@@ -18,8 +18,8 @@ public class BunParamTest {
         this.bunPrice = price;
     }
 
-    @Parameters(name = "Набор тестовых данных {index} >> Данные: {0} - {1}")
-    public static Object[][] getBuns() {
+    @Parameters(name = "Набор тестовых данных {index} >> Name: {0}, Price: {1}")
+    public static Object[][] getTestData() {
         return new Object[][]{
                 {"Обычная", 1},
                 {"Вкусная", 20},
@@ -42,12 +42,12 @@ public class BunParamTest {
     }
 
     @Test
-    public void getNameTest() {
+    public void getBunNameTestShouldReturnValidBunName() {
         Assert.assertEquals("Имя булочки не соответствует указанному", this.bunName, this.bun.getName());
     }
 
     @Test
-    public void getPriceTest() {
-        Assert.assertEquals("Цена булочки не совпадает с точностью до сотых", this.bunPrice, this.bun.getPrice(), 0.01F);
+    public void getBunPriceTestShouldReturnValidBunPrice() {
+        Assert.assertEquals("Цена булочки не соответствует указанной", this.bunPrice, this.bun.getPrice(), 0.01F);
     }
 }
